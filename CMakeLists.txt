@@ -25,7 +25,7 @@ include_directories(
     ${VULKAN_SDK_INCLUDE}
 )
 
-include_directories(${EXVIS_CLIENT_LIBRARY_DIR}/glad-ogl-320c/include)
+include_directories(${EXVIS_CLIENT_LIBRARY_DIR}/glad-ogl-3.0/include)
 
 include_directories(${EXVIS_CLIENT_LIBRARY_DIR}/imgui-1.85-opengl3-glfw)
 include(${EXVIS_CLIENT_LIBRARY_DIR}/imgui-1.85-opengl3-glfw/imgui-cmake.txt)
@@ -33,7 +33,7 @@ include(${EXVIS_CLIENT_LIBRARY_DIR}/imgui-1.85-opengl3-glfw/imgui-cmake.txt)
 set(EXVIS_CLIENT_SOURCE
     src/main.cpp
     src/platform/window.cpp
-    lib/glad-ogl-320c/src/glad.c
+    lib/glad-ogl-3.0/src/glad.c
 )
 
 add_executable(ExVis ${EXVIS_CLIENT_SOURCE} ${IMGUI_SOURCE})

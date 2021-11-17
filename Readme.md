@@ -4,7 +4,7 @@ Hier könnte ihre Werbung stehen!
 ## Required Libraries
 - GLFW 3.3.4+ (https://www.glfw.org/)
 - ImGUI 1.85+ (bundled)
-- GLAD w/ OpenGL 320+ (bundled)
+- GLAD w/ OpenGL <= v300 (bundled)
 
 ## Setup & Build
 1. Download and unpack (or clone) GLFW somewhere (e.g. `lib/glfw-3.3.4`-folder).
