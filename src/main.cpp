@@ -29,7 +29,7 @@ int main() {
     ImGuiContext *ctx = ImGui::CreateContext();
     ImGui::SetCurrentContext(ctx);
     ImGui_ImplGlfw_InitForOpenGL(window->m_window, true);
-    ImGui_ImplOpenGL3_Init("#version 300 es");
+    ImGui_ImplOpenGL3_Init("#version 140");
 
     while (!window->ClientExit()) {
         glad_glClearColor(0.4f, 0.4f, 0.4f, 1.0f);

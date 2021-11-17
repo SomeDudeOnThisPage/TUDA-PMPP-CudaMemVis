@@ -1585,6 +1585,7 @@ static void find_coreGL(void) {
     };
 
     version = (const char*) glGetString(GL_VERSION);
+    printf("VERSION: %s\n", version);
     if (!version) return;
 
     for (i = 0;  prefixes[i];  i++) {
@@ -1624,15 +1625,25 @@ int gladLoadGLLoader(GLADloadproc load) {
 	glGetString = (PFNGLGETSTRINGPROC)load("glGetString");
 	if(glGetString == NULL) return 0;
 	if(glGetString(GL_VERSION) == NULL) return 0;
+    printf("find core gl");
 	find_coreGL();
-	load_GL_VERSION_1_0(load);
+    printf("find v1\n");
+    load_GL_VERSION_1_0(load);
+    printf("find v11\n");
 	load_GL_VERSION_1_1(load);
+    printf("find v12\n");
 	load_GL_VERSION_1_2(load);
+    printf("find v13\n");
 	load_GL_VERSION_1_3(load);
+    printf("find v14\n");
 	load_GL_VERSION_1_4(load);
+    printf("find v15\n");
 	load_GL_VERSION_1_5(load);
+    printf("find v20\n");
 	load_GL_VERSION_2_0(load);
+    printf("find v21\n");
 	load_GL_VERSION_2_1(load);
+    printf("find 30\n");
 	load_GL_VERSION_3_0(load);
 
 	if (!find_extensionsGL()) return 0;
