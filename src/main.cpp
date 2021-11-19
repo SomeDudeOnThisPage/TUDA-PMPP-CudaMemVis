@@ -1,14 +1,20 @@
-#include <iostream>
+#include "exvis.h"
+#include "gui/MemoryBlock.h"
 
-#define IMGUI_IMPL_OPENGL_LOADER_CUSTOM
+template <typename T>
+memory_block_2d create_memory_block(const char* id) {
+    memory_block_descriptor_2d descriptor{};
+    descriptor.unique_identifier = id;
+    descriptor.start = 0x1234567899999999;
+    descriptor.size = 128 * 128 * sizeof(T);
+    descriptor.width = 128;
+    descriptor.element_size = sizeof(T);
 
-#include <imgui.h>
-#include <imgui_impl_glfw.h>
-#include <imgui_impl_opengl3.h>
+    memory_block_2d block{};
+    block.descriptor = descriptor;
 
-#include <glad/glad.h>
-#include "platform/window.h"
-
+    return block;
+}
 
 int main() {
     exvis::Window *window;
@@ -31,6 +37,12 @@ int main() {
     ImGui_ImplGlfw_InitForOpenGL(window->m_window, true);
     ImGui_ImplOpenGL3_Init("#version 140");
 
+    memory_block_2d mem0 = create_memory_block<float>("M");
+    memory_block_2d mem1 = create_memory_block<float>("N");
+
+    exvis::MemoryBlock arr0(mem0, 5);
+    exvis::MemoryBlock arr1(mem1, 5);
+
     while (!window->ClientExit()) {
         glad_glClearColor(0.4f, 0.4f, 0.4f, 1.0f);
         glad_glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
@@ -40,30 +52,8 @@ int main() {
         ImGui_ImplOpenGL3_NewFrame();
         ImGui::NewFrame();
 
-        if (ImGui::Begin("Hello World")) {
-            ImGui::Text("I'm the Globglogabgalab. I love books, and this basement is a true treasure trove.\n"
-                        "\n"
-                        "I am the Globglogabgalab; The schwabboldabblewabble gabbleflebablabablab.\n"
-                        "\n"
-                        "I'm full of schwibbleglibblekind; I am the yeast of thoughts and mind.\n"
-                        "\n"
-                        "Schwabbledabbleglibbeglabbe schwibbleschwabglab; Dibbledabble schwibbleschwabble glibbleglabschwab.\n"
-                        "\n"
-                        "Schwabbledabbleglibbeglabbe schwibbleschwabdab; Dibbledabble schwibbleschwabble glibbleschwabglab.\n"
-                        "\n"
-                        "Ooh hahaha mmmh splendid! Simply delicious, ooomm hahaa haha!\n"
-                        "\n"
-                        "I am the Globglogabgalab; The schwabboldabblewabble gabbleflebablabablab.\n"
-                        "\n"
-                        "I'm full of schwibbleglibblekind; I am the yeast of thoughts and mind.\n"
-                        "\n"
-                        "Schwabbledabbleglibbeglabbe schwibbleschwabglab; Dibbledabble schwibbleschwabble glibbleglabschwab.\n"
-                        "\n"
-                        "Schwabbledabbleglibbeglabbe schwibbleschwabdab; Dibbledabble schwibbleschwabble glibbleschwabglab.\n"
-                        "\n"
-                        "Aaaah.");
-            ImGui::End();
-        }
+        arr0.render();
+        arr1.render();
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

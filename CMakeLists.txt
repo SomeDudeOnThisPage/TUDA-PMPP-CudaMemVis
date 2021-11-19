@@ -7,10 +7,11 @@ set(CMAKE_SOURCE_DIR ${CMAKE_SOURCE_DIR}/src)
 set(EXVIS_CLIENT_LIBRARY_DIR ${PROJECT_SOURCE_DIR}/lib)
 
 # setup GLFW
-# set(GLFW_DIRECTORY ${EXVIS_CLIENT_LIBRARY_DIR}/glfw-3.3.4)
-if (NOT DEFINED GLFW_DIRECTORY)
-    message( FATAL_ERROR "GLFW_DIRECTORY is not set. You must download and unpack GLFW and add -DGLFW_DIRECTORY=[ relative path to your glfw directory ] as a cmake parameter." )
-endif()
+set(GLFW_DIRECTORY ${EXVIS_CLIENT_LIBRARY_DIR}/glfw-3.3-stable)
+# -DGLFW_DIRECTORY="lib/glfw-3.3.4"
+# if (NOT DEFINED GLFW_DIRECTORY)
+#     message( FATAL_ERROR "GLFW_DIRECTORY is not set. You must download and unpack GLFW and add -DGLFW_DIRECTORY=[ relative path to your glfw directory ] as a cmake parameter." )
+# endif()
 
 set(GLFW_BUILD_EXAMPLES FALSE)
 set(GLFW_BUILD_TESTS FALSE)
@@ -32,7 +33,9 @@ include(${EXVIS_CLIENT_LIBRARY_DIR}/imgui-1.85-opengl3-glfw/imgui-cmake.txt)
 
 set(EXVIS_CLIENT_SOURCE
     src/main.cpp
+    src/exvis.h
     src/platform/window.cpp
+    src/gui/MemoryBlock.cpp
     lib/glad-ogl-3.0/src/glad.c
 )
 
