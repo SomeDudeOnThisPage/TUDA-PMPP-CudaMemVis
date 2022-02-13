@@ -34,8 +34,15 @@ include(${EXVIS_CLIENT_LIBRARY_DIR}/imgui-1.85-opengl3-glfw/imgui-cmake.txt)
 set(EXVIS_CLIENT_SOURCE
     src/main.cpp
     src/exvis.h
+    src/platform/GLAsset.cpp
+    src/platform/GLTexture.cpp
+    src/platform/GLShader.cpp
+    src/platform/GLBindable.h
+    src/platform/GLFrameBuffer.cpp
+    src/platform/TraceFile.cpp
     src/platform/window.cpp
     src/gui/MemoryBlock.cpp
+    src/gui/GUIElement.cpp
     lib/glad-ogl-3.0/src/glad.c
 )
 

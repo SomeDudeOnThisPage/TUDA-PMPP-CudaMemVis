@@ -24,15 +24,15 @@ namespace exvis {
         glfwTerminate();
     }
 
-    bool Window::ClientExit() {
+    bool Window::client_exit() {
         return glfwWindowShouldClose(this->m_window);
     }
 
-    void Window::Poll() {
+    void Window::poll() {
         glfwPollEvents();
     }
 
-    void Window::SwapBuffers() {
+    void Window::swap_buffers() {
         glfwSwapBuffers(this->m_window);
     }
 }

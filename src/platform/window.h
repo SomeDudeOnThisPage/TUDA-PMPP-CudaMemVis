@@ -1,6 +1,6 @@
 #pragma once
 
-#include <GLFW/glfw3.h>
+#include "../exvis.h"
 #include <string>
 #include <stdexcept>
 #include <iostream>
@@ -15,9 +15,9 @@ namespace exvis {
         Window(uint16_t width, uint16_t height, const std::string& title);
         ~Window();
 
-        bool ClientExit();
-        void Poll();
-        void SwapBuffers();
+        bool client_exit();
+        void poll();
+        void swap_buffers();
 
     private:
         uint16_t m_width;
