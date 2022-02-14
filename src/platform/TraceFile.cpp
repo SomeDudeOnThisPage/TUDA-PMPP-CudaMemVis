@@ -24,14 +24,15 @@ bool exvis::TraceFile::load(const char *path) {
         line0_stream >> this->m_grid_size[1];
         line0_stream.get(ihatecpp);
         line0_stream >> this->m_grid_size[2];
-        line0_stream.get(ihatecpp);
 
-        line0_stream >> this->m_block_size[0];
-        line0_stream.get(ihatecpp);
-        line0_stream >> this->m_block_size[1];
-        line0_stream.get(ihatecpp);
-        line0_stream >> this->m_block_size[2];
-        line0_stream.get(ihatecpp);
+        file >> line;
+        std::stringstream line1_stream(line);
+        line1_stream >> this->m_block_size[0];
+        line1_stream.get(ihatecpp);
+        line1_stream >> this->m_block_size[1];
+        line1_stream.get(ihatecpp);
+        line1_stream >> this->m_block_size[2];
+
         std::cout << "Block Size -> [" << this->m_block_size[0] << ", " << this->m_block_size[1] << ", " << this->m_block_size[2] << "]" << std::endl;
 
         file >> line;
