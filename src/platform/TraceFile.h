@@ -13,6 +13,7 @@ namespace exvis {
     class TraceFile {
     public:
         std::vector<int> m_max_block_index = std::vector<int>(3);
+        std::vector<int> m_grid_size = std::vector<int>(3);
         std::vector<int> m_block_size = std::vector<int>(3);
         std::vector<exvis::memory_block_info> m_blocks;
         std::vector<exvis::trace_instruction> m_instructions;

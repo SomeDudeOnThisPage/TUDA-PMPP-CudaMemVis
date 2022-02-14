@@ -60,7 +60,7 @@ void apply_instructions_to(int to) {
     auto elapsed = end - start;
 
     exvis::message_t msg{};
-    msg.message = "Processed " + std::to_string(processed) + " instructions in " + std::to_string((double) elapsed.count() / 1000.0) + "ms";
+    msg.message = "Processed " + std::to_string(processed) + " instructions in " + std::to_string((double) elapsed.count() / 1000000.0) + "ms";
     msg.severity = exvis::message_severity::INFO;
     messages.push_back(msg);
     current_instruction = to;
