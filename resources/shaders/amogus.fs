@@ -8,18 +8,14 @@ in VS_OUT {
     vec2 uv;
 } i;
 
-uniform vec2 u_resolution; // vec2i
-
+uniform vec2 u_resolution;
 uniform bool u_ld_enabled;
 uniform bool u_st_enabled;
 uniform bool u_show_grid_blocks;
-
 uniform vec3 u_block_size;
 uniform vec3 u_max_block_index;
-
 uniform float u_grid_block_opacity;
-
-uniform sampler2D u_data; // GL_FLOAT => r = ld, g = st, b = sus
+uniform sampler2D u_data; // GL_FLOAT => r = ld, g = st, b = euuugh
 
 void main() {
     vec2 position = gl_FragCoord.xy / u_resolution;

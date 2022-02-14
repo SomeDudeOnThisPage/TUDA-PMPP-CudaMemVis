@@ -95,7 +95,7 @@ void exvis::MemoryBlock::set_data_texture(uint32_t column, uint32_t row, float d
     float u_data[4];
     u_data[0] = (float) this->m_memory_info.st_accesses[position];
     u_data[1] = (float) this->m_memory_info.ld_accesses[position];
-    u_data[2] = (float) this->m_memory_info.st_accesses[position];
+    u_data[2] = 0.0f;
     u_data[3] = 1.0f;
     glTexSubImage2D(GL_TEXTURE_2D, 0, column, row, 1, 1, GL_RGBA, GL_FLOAT, &u_data); // switched because imgui texture rotation is weird
     this->m_data_texture->unbind();
