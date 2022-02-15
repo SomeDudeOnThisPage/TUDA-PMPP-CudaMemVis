@@ -43,7 +43,6 @@ void apply_instructions_to(int to) {
                         info.revert(file->m_instructions[i - 1]);
                     }
                 } catch (...) {
-                    std::cout << "MEMORY ACCESS VIOLATION :D" << std::endl;
                 }
             }
         }
